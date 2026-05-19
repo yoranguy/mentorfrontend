@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>QR code component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 0.6875rem;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    /*
+    Guide
+    1. Positioning/Layout: position, top, right, float, display
+    2. Box Model: width, height, margin, padding, border
+    3. Typography: font, line-height, text-align, color
+    4. Visual/Appearance: background, border-radius, box-shadow
+    5. Misc/Miscelleanous: opacity, transform, cursor
+
+    */
+
+    body {
+
+      /* 1. Positioning/Layout */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0px;
+      
+      /* 2. Box Model */
+      
+      /* 3. Typography */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+
+      /* 4. Visual/Appearance */
+      background-color: #d5e1ef;
+      color: #38465f;
+    }
+
+    h1, p{
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .main {
+      border-radius: 10px;
+      padding: 15px;
+      background-color: #ffffff;
+      width: 320px;
+      
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      /* margin-top: 15px; */
+    }
+
+    p {
+      font-size: 1rem;
+      /* margin: 0 15px 20px; */
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    p a:link, p a:visited, p a:focus {
+      color:#2c7dfa;
+    }
+
+    p a:hover {
+      color: white;
+      background-color: #74abfd;
+    }
+
+    p a:active {
+      color: white;
+      background-color: #0066ff;
+    }
+
+    .link-bubble{
+      border-radius: 7px;
+      padding: 0 7px 5px;
+    }
+
+    @media (max-width: 480px) {
+      .main {
+        width: 280px;
+      }
+    }
+    
+  </style>
+</head>
+
+<body>
+
+  <div class="main">
+    <a href="https://linktr.ee/yoranguy" >
+    <img src="images/linktree.png" alt="QR code image">
+    </a>
+
+
+    <h1>Yora Nguy's Portfolio</h1>
+    <p>
+
+      Digital Creative Portfolio &amp; Projects
+      <br><br>
+      All my links below
+      <br>
+      <a href="https://linktr.ee/yoranguy" class="link-bubble">linktr.ee/yoranguy</a>
+      <br><br>
+      See My Latest Work
+
+
+    </p>
+  </div>
+
+  <!--
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">yoranguy</a>. 
+  </footer>
+-->
+</body>
+
+</html>

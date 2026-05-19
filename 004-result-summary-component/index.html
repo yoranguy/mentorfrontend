@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 0.6875rem;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+
+    * {
+      padding: 0;
+      border: 0;
+      margin: 0;
+
+      text-align: center;
+    }
+
+    body {
+      min-height: 100vh;
+
+      display: flex;
+      flex-flow: column wrap;
+      gap: 0;
+      align-items: center;
+      justify-content: center;
+
+
+      font: 18px 'Hanken Grotesk';
+
+      background-color: hsl(221, 100%, 96%);
+
+    }
+
+    .result-summary-component {
+      max-width: 730px;
+      
+
+      display: flex;
+      flex-flow: row wrap;
+      gap: 0;
+      justify-content: center;
+      align-items: stretch;
+
+      background-color: hsl(0, 0%, 100%);
+      border-radius: 40px;
+
+    }
+
+    .result {
+      /*min-height: 515px;*/
+      min-height: 100%;
+      min-width: 365px;
+
+      padding: 40px;
+
+      box-sizing: border-box;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: stretch;
+      gap: 30px;
+
+      color: hsl(241, 100%, 89%);
+
+      background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+      border-radius: 40px;
+    }
+
+    .summary {
+      min-height: 515px;
+      min-width: 365px;
+
+      padding: 30px;
+
+      box-sizing: border-box;
+      display: flex;
+      flex-flow: column wrap;
+      gap: 40px;
+
+      color: hsl(241, 100%, 89%);
+    }
+
+
+    .result-score-module {
+      display: flex;
+      flex-flow: column wrap;
+      gap: 0;
+      justify-content: center;
+      align-items: center;
+
+      color: hsl(0, 0%, 100%);
+    }
+
+    .result-score-circle {
+      width: 200px;
+      height: 200px;
+
+      display: flex;
+      flex-flow: column wrap;
+      gap: 0;
+      justify-content: center;
+      align-items: center;
+
+      background: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+      border-radius: 50%;
+    }
+
+    .heading {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+
+    .result-score-value {
+      font-size: 48pt;
+      font-weight: 800;
+    }
+
+    .result-score-total {
+      font-size: 14pt;
+      font-weight: 700;
+      color: hsl(241, 100%, 89%)
+    }
+
+    .result-description {
+      display: flex;
+      flex-flow: column wrap;
+      gap: 10px;
+
+      justify-content: center;
+      align-items: center;
+    }
+
+    .result-scale {
+      font-weight: 700;
+      font-size: 34px;
+      color: hsl(221, 100%, 96%);
+    }
+
+    .result-score-details {
+      max-width: 260px;
+
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .summary-heading {
+      text-align: left;
+    }
+
+    .summary-attribute-collection {
+
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 20px;
+    }
+
+    .summary-attribute-pill {
+      padding: 15px;
+
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: center;
+
+      font-weight: 600;
+      border-radius: 10px;
+    }
+
+    .summary-attribute {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: center;
+
+
+      font-weight: 600;
+      border-radius: 10px;
+    }
+
+    .summary-attribute img {
+      padding-right: 10px;
+    }
+
+    #summary-reaction {
+      color: hsl(0, 100%, 67%);
+
+      background-color: hsla(0, 100%, 67%, 5%);
+    }
+
+    #summary-memory {
+      color: hsl(39, 100%, 56%);
+
+      background-color: hsla(39, 100%, 56%, 5%);
+    }
+
+    #summary-verbal {
+      color: hsl(166, 100%, 37%);
+
+      background-color: hsla(166, 100%, 37%, 5%);
+    }
+
+    #summary-visual {
+      color: hsl(234, 85%, 45%);
+
+      background-color: hsla(234, 85%, 45%, 5%);
+    }
+
+    .bold-800{
+      font-weight: 800
+    }
+
+    .summary-color {
+      color: hsl(224, 30%, 27%);
+    }
+
+    .summary-100 {
+      color: hsla(224, 30%, 27%, 50%);
+    }
+
+    .summary-button{
+      padding:15px;
+
+      color:hsl(0, 0%, 100%);
+      font-weight: 600;
+
+      background-color: hsl(224, 30%, 27%);
+      border-radius: 40px;
+    }
+
+    .summary-button:focus, .summary-button:hover{
+      color:hsl(0, 0%, 100%);
+      background-color: hsl(252, 100%, 67%);
+    }
+
+    .capitalize-text {
+      text-transform: capitalize;
+    }
+
+    @media (max-width: 730px) {
+      .result-summary-component {
+        max-width: 365px;
+
+        margin: 20px 0 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="result-summary-component">
+    <div class="result">
+      <div class="heading">Your Result</div>
+
+      <div class="result-score-module">
+        <div class="result-score-circle">
+          <div class="result-score-value">76</div>
+          <div class="result-score-total">of 100</div>
+        </div>
+      </div>
+      <div class="result-description">
+        <div class="result-scale">
+          Great
+        </div>
+        <div class="result-score-details">
+          You scored higher than 65% of the people who have taken these tests.
+        </div>
+      </div>
+    </div>
+    <div class="summary summary-color">
+      <div class="heading summary-heading">Summary</div>
+
+      <div class="summary-attribute-collection" id="summary-attribute-collection">
+        
+        <!-- Static -->
+        <!--
+        <div class="summary-attribute-pill" id="summary-reaction">
+          <div class="summary-attribute">
+            <img src="./assets/images/icon-reaction.svg" alt="">
+            <p>Reaction</p>
+          </div>
+          <div class="summary-color"><span class="bold-800">80</span>&nbsp;<span class="summary-100"> / 100</span></div>
+        </div>
+
+        <div class="summary-attribute-pill" id="summary-memory">
+          <div class="summary-attribute">
+            <img src="./assets/images/icon-memory.svg" alt="">
+            <p>Memory</p>
+          </div>
+          <div class="summary-color"><span class="bold-800">92</span>&nbsp;<span class="summary-100"> / 100</span></div>
+        </div>
+
+        <div class="summary-attribute-pill" id="summary-verbal">
+          <div class="summary-attribute">
+            <img src="./assets/images/icon-verbal.svg" alt="">
+            <p>Verbal</p>
+          </div>
+          <div class="summary-color"><span class="bold-800">61</span>&nbsp;<span class="summary-100"> / 100</span></div>
+        </div>
+
+        <div class="summary-attribute-pill" id="summary-visual">
+          <div class="summary-attribute">
+            <img src="./assets/images/icon-visual.svg" alt="">
+            <p>Visual</p>
+          </div>
+          <div class="summary-color"><span class="bold-800">72</span>&nbsp;<span class="summary-100"> / 100</span></div>
+        </div>
+        -->
+      </div>
+
+      <div class="summary-button">Continue</div>
+    </div>
+  </div>
+  <!--
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a href="#">yoranguy</a>.
+  </footer>
+  -->
+  <script>
+
+  /* Initialise Variables */
+  let my_stats = [];
+
+  /* Functions */
+  function getData(data){
+    myStats = data;
+    console.log(myStats);
+
+    
+    for (let i = 0; i < myStats.length; i++){
+      let attribute_category = "";
+      let attribute_score = "";
+      let attribute_icon = "";
+
+      /* Get Data */
+      for (let [key, value] of Object.entries(myStats[i]))
+      {
+        // console.log("myStats[i]: ", myStats[i])
+        // console.log("myStats[i][key]:", myStats[i][key], " key: ", key, " value: ", value)
+        console.log("key: " + key + ", value: "+ value);
+        
+        if (key == "category"){
+          attribute_category = value;
+        }
+
+        if (key == "score"){
+          attribute_score = value;
+        }
+
+        if (key == "icon"){
+          attribute_icon = value;
+        }
+      }
+
+      /* Set Data */
+      console.log("attribute_category: " + attribute_category,"attribute_score: ",attribute_score,"attribute_icon: ", attribute_icon)
+      
+      const summary_attribute = document.getElementById("summary-attribute-collection");
+
+      const node_pill = document.createElement("div");
+
+      node_pill.className = "summary-attribute-pill summary-" + attribute_category.toLowerCase();
+      node_pill.id = "summary-" + attribute_category.toLowerCase();
+
+      const node_attribute = document.createElement("div");
+      node_attribute.className = "summary-attribute";
+      
+      const node_image = document.createElement("img");
+      node_image.src = attribute_icon;
+      node_image.alt = "icon";
+
+      const node_paragraph = document.createElement("p");
+      node_paragraph.className = "capitalize-text";
+      node_paragraph.innerText = attribute_category;
+      
+      const node_fraction = document.createElement("div");
+      node_fraction.className = "summary-color";
+
+      const node_fraction_value = document.createElement("span");
+      node_fraction_value.className = "bold-800";
+      node_fraction_value.innerText = attribute_score;
+
+      const node_fraction_denominator = document.createElement("span");
+      node_fraction_denominator.className = "summary-100";
+      node_fraction_denominator.innerText = " / 100";
+
+      summary_attribute.appendChild(node_pill);
+
+      node_pill.appendChild(node_attribute);
+      node_attribute.appendChild(node_image);
+      node_attribute.appendChild(node_paragraph);
+      
+      node_pill.appendChild(node_fraction);
+      node_fraction.appendChild(node_fraction_value);
+      node_fraction.innerHTML += "&nbsp;";
+      node_fraction.appendChild(node_fraction_denominator);
+    }  
+  }
+
+  /* Main Execution */
+  fetch('./data.json')
+  .then(response => response.json()) // Parses JSON automatically
+  /* .then(data => console.log(data)) */
+  .then(data => getData(data))
+  .catch(error => console.error('Error:', error));
+
+  </script>
+</body>
+
+</html>
